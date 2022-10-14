@@ -11,6 +11,11 @@ const showingNavigationDropdown = ref(false);
 </script>
 
 <template>
+    <div v-if="$page.props.flash.message" class="p-4 mb-4 text-sm text-blue-700 bg-blue-100 dark:text-blue-400 dark:bg-blue-800" role="alert">
+        <div class="max-w-7xl mx-auto">
+            {{ $page.props.flash.message }}
+        </div>
+    </div>
     <div>
         <div class="min-h-screen bg-gray-100">
             <nav class="bg-white border-b border-gray-100">
@@ -29,6 +34,16 @@ const showingNavigationDropdown = ref(false);
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
+                                </NavLink>
+                            </div>
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink :href="route('skills.index')" :active="route().current('skill.index')">
+                                    Skills
+                                </NavLink>
+                            </div>
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink :href="route('projects.index')" :active="route().current('projects.index')">
+                                    Projects
                                 </NavLink>
                             </div>
                         </div>
